@@ -1,10 +1,21 @@
-<?php $section_name = end(explode('-',basename(__FILE__, '.php'))); ?>
 <?php 
+/** 
+ *  Title: Cards Template
+ *  Slug: cards
+ *  Description: This area add a three item long cards with images section
+ *  Guide: Create a category with the name cards
+ * 
+ **/
+ ?>
+
+<?php 
+    $section_name = end(explode('-',basename(__FILE__, '.php'))); 
+
     $cat = get_category_by_slug($section_name);
     $title = ($cat) ? $cat->cat_name: 'Cards';
     $cat_id = ($cat) ? $cat->cat_ID : 9999;
     $args = array(
-        'posts_per_page'   => -1,
+        'posts_per_page'   => 3,
         'category'         => $cat_id,
         'order'            => 'DESC',
     );
@@ -21,7 +32,7 @@
         <?php if(has_post_thumbnail()): ?>
             <img src="<?php the_post_thumbnail_url(); ?>" class="img-fluid rounded-circle img-thumbnail"/>
         <?php else: ?>
-            <img src="https://place-hold.it/300x300" class="rounded-circle"/>
+            <img src="https://place-hold.it/300x300" class="img-fluid rounded-circle img-thumbnail"/>
         <?php endif; ?>
      </div>
       <h2 class="fw-normal"><?php the_title(); ?></h2>

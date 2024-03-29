@@ -1,11 +1,39 @@
+<?php 
+/** 
+ *  Title: Home Split-Text
+ *  Description: This area adds a two item long Section
+ *  Guide: Create a category with the slug "splittext"
+ * 
+ **/
+ ?>
+
+<?php 
+    $section_name = end(explode('-',basename(__FILE__, '.php'))); 
+
+    $cat = get_category_by_slug($section_name);
+    $title = ($cat) ? $cat->cat_name: 'Cards';
+    $cat_id = ($cat) ? $cat->cat_ID : 9999;
+    $args = array(
+        'posts_per_page'   => 2,
+        'category'         => $cat_id,
+        'order'            => 'DESC',
+    );
+    $posts = get_posts( $args ); $cnt=0;
+?>
 <div class="bg-off-white-split-reverse">
   <div class="container">
     <div class="row featurette">
-      <div class="col-md-6 center-text">
-        
-        <h2 class="lead">My journey reflects a passion for delivering the perceived impossible
-          - (Impossible is NOTHING) 
-          (providing Technology & Architecture Leadership to Corporations Building Future-Ready Digital & Data Capabilities.)
+    <?php if(count($posts) > 0): foreach ( $posts as $post ) : setup_postdata( $post );?>
+      <div class="col-md-6">
+      <?php the_content(); ?>
+      </div>
+    <?php endforeach; else: ?>
+      <div class="col-md-6 ">
+        <h2 class="lead"> This is dummy text.<br/> To create content, Create a post in a category 
+            category with the slug "splittext" <br/>
+
+           Only the last two matching items will be displayed
+          The content will be displayed here and in the next space
         </h2>
       </div>
       <div class="col-md-6">
@@ -22,7 +50,8 @@
         As a go-to resource for Technology Transformation, Data Transformation, and Digital Automation, I am a lifelong learner committed to achieving goals for key stakeholders globally.
         </p>
       </div>
-    </div>
+    <?php endif; ?>
+    </div><!--/.row .featurette -->
   </div>
 
 </div>
