@@ -37,18 +37,34 @@
     </div>
 
   </footer>
-
-
-
-    <script src="lib/jquery/js/jquery.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
-
-
-      
-
 </main>
+<div class="modal fade" id="staticBackdrop2312" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>
 </body>
+    <script src="<?php bloginfo("template_directory");?>/lib/jquery/js/jquery.min.js"></script>
+    <script src="<?php bloginfo("template_directory");?>/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php bloginfo("template_directory");?>/js/main.js"></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+    <style>
+      div#root > div {
+        background-color: transparent;
+      }
+    </style>
+
 <?php wp_footer(); ?>
 
 </body>

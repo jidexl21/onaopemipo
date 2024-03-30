@@ -11,7 +11,7 @@
   ?>
 <!-- timeline -->
 
-<div class="bg-peach py-5">
+<div class="bg-peach py-5" id="professional-history">
 <div class="container">
 
   <div class="page-header">
@@ -22,19 +22,16 @@
 
     <?php if($posts->have_posts()): while($posts->have_posts()): $posts->the_post(); ?>
       <li <?php if($cnt % 2 == 0): else : print 'class="timeline-inverted"'; endif;?>>
+      <div class="timeline-badge danger"><i class="glyphicon glyphicon-time"></i></div>
         <?php if(has_post_thumbnail()): ?>
-        <div class="timeline-badge plain">
-            <img src ="<?php the_post_thumbnail_url();?>" height="60px" style="backgroud-img"/>
-        </div>
-        <?php else: ?>
-        <div class="timeline-badge danger">
-         <i class="glyphicon glyphicon-time"></i>
-        </div>
+            <img src ="<?php the_post_thumbnail_url();?>" height="60px" class="timeline-image"/>
         <?php endif; ?>
+
         <div class="timeline-panel">
           <div class="timeline-heading">
+          <?php edit_post_link( __( 'Edit', 'textdomain' ), '<div class="floated">', '</div>', null, 'btn btn-default btn-sm btn-edit-post-link' ); ?>
             <h4 class="timeline-title"><?php the_title();?></h4>
-            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?php echo date(get_option('date_format')); ?></small></p>
+            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?php echo get_the_date(); ?></small></p>
           </div>
           <div class="timeline-body">
             <?php the_content(); ?>
@@ -49,6 +46,22 @@
         <div class="timeline-panel">
           <div class="timeline-heading">
             <h4 class="timeline-title">Add a timeline item</h4>
+            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?php echo date(get_option('date_format')); ?></small></p>
+          </div>
+          <div class="timeline-body">
+            <p>
+              Timeline content comes here. to use this section place items in a category called timeline, or a category that as a slug named timeline <br/>
+            </p>
+          </div>
+        </div>
+      </li>
+      <li class="timeline-inverted">
+        <div class="timeline-badge danger">
+         <i class="glyphicon glyphicon-time"></i>
+        </div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="timeline-title">Add another timeline item</h4>
             <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?php echo date(get_option('date_format')); ?></small></p>
           </div>
           <div class="timeline-body">

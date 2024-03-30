@@ -1,18 +1,42 @@
+
+<?php 
+    $section_name = end(explode('-',basename(__FILE__, '.php'))); 
+
+    $cat = get_category_by_slug($section_name);
+    $title = ($cat) ? $cat->cat_name: 'Cards';
+    $desc = ($cat) ? $cat->description: 'The category Description';
+    $cat_id = ($cat) ? $cat->cat_ID : 9999;
+    
+    $args = array(
+        'category_name' => $section_name,
+        'post_status' => 'publish',
+        'post_type' => 'post',
+        'posts_per_page' => 2,
+        );
+
+    $posts = query_posts($args);  $cnt=0;
+?>
 <!-- Contact form-->
 <section class="section bg-gray">
 <div class="container">
   <div class="col-md-6 mx-auto">
   <!--Section heading-->
-  <h2 class="section-heading h1 pt-4 text-center">Contact Me</h2>
+  <h2 class="section-heading h1 pt-4 text-center"><?php echo $title;?></h2>
   <!--Section description-->
   <p class="section-description text-center">
-    Thank you for your interest in contacting me. You can send a message using the contact form below,  and I&apos;ll get back to you.
+    <?php echo $desc;?>
   </p>
 
   <div class="row">
 
       <!--Grid column-->
       <div class="col-md-12 col-xl-12 py-5">
+      <?php if(have_posts()): while(have_posts()): the_post(); ?>
+      <div id="contact-form">
+        <?php the_content(); ?>
+      </div>
+      <?php edit_post_link( __( 'Edit', 'textdomain' ), '<div class="floated">', '</div>', null, 'btn btn-default btn-sm btn-edit-post-link' ); ?>
+      <?php endwhile;  else: ?>
           <form id="contact-form" name="contact-form">
 
             <div class="row>">
@@ -81,6 +105,7 @@
           </div>
           <div class="status"></div>
       </div>
+      <?php endif; ?>
       <!--Grid column-->
 
       <!--Grid column-->

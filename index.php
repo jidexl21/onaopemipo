@@ -25,6 +25,8 @@ get_header();
 
 <?php get_template_part("template-parts/body", "timeline") ?>
 
+<?php get_template_part("template-parts/body", "logos") ?>
+
 <?php get_template_part("template-parts/body", "contact") ?>
 
 

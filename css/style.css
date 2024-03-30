@@ -147,6 +147,8 @@ padding-right: 10px;
   position: relative;
 }
 
+
+
   .timeline:before {
       top: 0;
       bottom: 0;
@@ -155,11 +157,12 @@ padding-right: 10px;
       width: 3px;
       background-color: #eeeeee;
       left: 50%;
+      outline: solid #eee 2px ;
       margin-left: -1.5px;
   }
 
   .timeline > li {
-      margin-bottom: 20px;
+      margin-bottom: 40px;
       position: relative;
   }
 
@@ -181,6 +184,17 @@ padding-right: 10px;
 
       .timeline > li:after {
           clear: both;
+      }
+      .timeline img.timeline-image {
+        height: 90px;
+        margin-left: 100px;
+      }
+      .timeline .timeline-inverted img.timeline-image {
+        height: 90px;
+        margin-right: 100px;
+        border-radius: 4px;
+        position: absolute;
+        right: 50%;
       }
 
       .timeline > li > .timeline-panel {
@@ -517,4 +531,43 @@ ul.availbility li a.nav-link{
   box-shadow: 1px 7px 15px -3px rgba(0,0,0,0.57);
   -webkit-box-shadow: 1px 7px 15px -3px rgba(0,0,0,0.57);
   -moz-box-shadow: 1px 7px 15px -3px rgba(0,0,0,0.57);
+}
+
+#staticBackdrop2312.show{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+#staticBackdrop2312.fade .modal-content,
+#staticBackdrop2312.show .modal-content {
+  height: 80vh;
+  width: 80vh;
+  border-radius: 50%;
+  display: flex;
+  align-self: center;
+  border-top: none;
+  background-color: #293241;
+  align-content: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+}
+
+#staticBackdrop2312 .modal-header{
+  border-bottom: none;
+  color: #fff;
+  align-items: flex-end;
+}
+#staticBackdrop2312 .modal-footer{
+  color: #fff;
+  border-top: none;
+}
+#staticBackdrop2312 .modal-body{
+  align-content: center;
+  color: #fff;
+  border-top: none;
+}
+.btn-close {
+  background-color: #fff;
 }

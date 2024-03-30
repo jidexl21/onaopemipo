@@ -15,6 +15,7 @@
   <div class="container center-text">
     <div class="content py-5 ">
      <?php if(count($posts) > 0): foreach ( $posts as $post ) : setup_postdata( $post );?>
+     <?php edit_post_link( __( 'Edit', 'textdomain' ), '<div class="floated">', '</div>', null, 'btn btn-default btn-sm btn-edit-post-link' ); ?>
       <h3 class="saira-condensed-semibold text-center"><?php the_title(); ?></h3>
         <?php the_content(); ?>
       <?php endforeach; else: ?>

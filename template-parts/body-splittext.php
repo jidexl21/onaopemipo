@@ -25,6 +25,7 @@
     <div class="row featurette">
     <?php if(count($posts) > 0): foreach ( $posts as $post ) : setup_postdata( $post );?>
       <div class="col-md-6">
+      <?php edit_post_link( __( 'Edit', 'textdomain' ), '<div class="floated">', '</div>', null, 'btn btn-default btn-sm btn-edit-post-link' ); ?>
       <?php the_content(); ?>
       </div>
     <?php endforeach; else: ?>

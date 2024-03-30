@@ -18,70 +18,56 @@
         'posts_per_page'   => 3,
         'category'         => $cat_id,
         'order'            => 'DESC',
+        'post_stats'       => 'publish'
     );
     $posts = get_posts( $args ); $cnt=0;
+    $tagsList = array();
 ?>
-<div class="bulleted py-5">
+<div class="bulleted py-5 bg-gray">
   <div class="container">
   <div class="row">
-    <h2 class="text-start py-3"><?php print $title; ?></h2>
-
+    <h2 class="text-start py-3">Competencies</h2>
     <?php if(count($posts) > 0): foreach ( $posts as $post ) : setup_postdata( $post );?>
     <div class="col-lg-4">
-      <div class="img-cap">
-        <?php if(has_post_thumbnail()): ?>
-            <img src="<?php the_post_thumbnail_url(); ?>" class="img-fluid rounded-circle img-thumbnail"/>
-        <?php else: ?>
-            <img src="https://place-hold.it/300x300" class="img-fluid rounded-circle img-thumbnail"/>
-        <?php endif; ?>
-     </div>
+      <?php edit_post_link( __( 'Edit', 'textdomain' ), '<div class="floated">', '</div>', null, 'btn btn-default btn-sm btn-edit-post-link' ); ?>
+      <?php if(has_post_thumbnail()): ?>
+         <div class="img-cap"><img src="<?php the_post_thumbnail_url();?>" class="img-fluid rounded-circle img-thumbnail"/></div>
+      <?php else: ?>
+         <div class="img-cap"><img src="<?php bloginfo('template_directory');?>/images/icon1.jpg" class="img-fluid rounded-circle img-thumbnail"/></div>
+      <?php endif; ?>
       <h2 class="fw-normal"><?php the_title(); ?></h2>
       <div class="card-content">
-        <?php the_content(); ?>
+        <?php the_content();?>
       </div>
-      <p class="text-center"><a class="btn btn-secondary btn-round" href="#">Read more</a></p>
+      <?php $tags = get_the_tags(); $curr_tag = ($tags)?$tags[0]->slug : "$cnt"; $tagsList[] = $curr_tag; ?>
+      <p class="text-center"><a class="btn btn-secondary btn-round" href="javascript:void(0)" role="tab-btn" target="#bubbles-tab-<?php echo $curr_tag;?>" >Read more</a></p>
     </div><!-- /.col-lg-4 -->
-    <?php endforeach;  else: ?>
-    <div class="col-lg-4">
-      <div class="img-cap"> <img src="https://place-hold.it/300x300" class="rounded-circle"/></div>
-      <h2 class="fw-normal">Tactical competencies</h2>
-      <div class="card-content">
-        <p>
-          Shaping the future of an organisation  through technology. 
-          Identifying and understanding emerging technologies with disruptive potential. 
-          Leading the organisation's technology innovation efforts. Aligning technology vision with business objectives and market trends.
-        </p>
-      </div>
-      <p class="text-center"><a class="btn btn-secondary btn-round" href="#">Read more</a></p>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4">
-      <div class="img-cap"> <img src="https://place-hold.it/300x300" class="rounded-circle"/></div>
-      <h2 class="fw-normal">Operational competencies </h2>
-      <div class="card-content">
-      <p>
-        Shaping the future of an organisation  through technology. 
-        Identifying and understanding emerging technologies with disruptive potential. 
-        Leading the organisation's technology innovation efforts. 
-        Aligning technology vision with business objectives and market trends..</p>
-
-      </div>
-      <p class="text-center" ><a class="btn btn-secondary btn-round" href="#">Read more</a></p>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4">
-      <div class="img-cap"> <img src="https://place-hold.it/300x300" class="rounded-circle"/></div>
-      <h2 class="fw-normal">Operational competencies </h2>
-      <div class="card-content">
-      <p>
-        Shaping the future of an organisation  through technology. 
-        Identifying and understanding emerging technologies with disruptive potential. 
-        Leading the organisation's technology innovation efforts. 
-        Aligning technology vision with business objectives and market trends..</p>
-
-      </div>
-      <p class="text-center" ><a class="btn btn-secondary btn-round" href="#">Read more</a></p>
-    </div><!-- /.col-lg-4 -->
-    
-    <?php endif; ?>  
-</div>
+  <?php endforeach; endif; ?>
   </div>
+  <div class="row">
+    <div class="bubbles"> 
+      <?php foreach ($tagsList as $tag_item) : ?>
+      <div id= "bubbles-tab-<?php echo $tag_item; ?>" class="bubble-container tab-pane" role="tabpanel" aria-labelledby="bubbles-tab-<?php echo $tag_item; ?>">
+      <?php  
+       $posts = get_posts( array(
+        'category_name'         => $tag_item,
+        'post_type'      => 'post',
+        'post_status'    => 'publish',
+        'posts_per_page'   => -1,
+        'order'            => 'DESC',
+        ));
+      ?>
+         <?php if(count($posts) > 0): foreach ( $posts as $post ) : setup_postdata( $post );?>
+          <div class="bubble round"><?php the_title();?>
+          <?php edit_post_link( __( 'Edit', 'textdomain' ), '<div class="floated">', '</div>', null, 'btn btn-default btn-sm btn-edit-post-link' ); ?>
+            <div class="d-none"><h3 class="headline"><?php the_title();?></h3><?php the_content() ?></div>
+          </div>
+        <?php endforeach; else: ?>
+          <div>No posts  tagged <?php  $tag_item; ?></div>
+        <?php endif;?>
+      </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</div>
 </div>
