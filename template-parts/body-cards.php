@@ -23,7 +23,7 @@
     $posts = get_posts( $args ); $cnt=0;
     $tagsList = array();
 ?>
-<div class="bulleted py-5 bg-gray">
+<div class="bulleted py-5 bg-gray" id="<?php echo $section_name; ?>">
   <div class="container">
   <div class="row">
     <h2 class="text-start py-3">Competencies</h2>

@@ -1,3 +1,7 @@
+<div class="floating-btn">
+  <div>Speaking Engagement</div>
+  <div><a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/jidexl21'});return false;">Invite</a></div>
+ </div>
 <div id="myCarousel" class="main-banner carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <!-- <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button> -->

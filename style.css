@@ -518,7 +518,6 @@ object {
 
 img {
 	height: auto;
-	max-width: 100%;
 }
 
 figure {
@@ -536,15 +535,7 @@ a {
 	color: #4169e1;
 }
 
-a:visited {
-	color: #800080;
-}
 
-a:hover,
-a:focus,
-a:active {
-	color: #191970;
-}
 
 a:focus {
 	outline: thin dotted;
@@ -1109,7 +1100,6 @@ textarea {
   
   .spacer-textured {
     background-color: #e2ebf1;
-    background-image:url(../images/texture1.jpg);
     min-height: 359px;
   }
 

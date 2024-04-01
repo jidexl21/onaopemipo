@@ -50,6 +50,7 @@ function onaopemipo_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'onaopemipo' ),
+			'menu-2' => esc_html__( 'Footer', 'onaopemipo' ),
 		)
 	);
 
@@ -168,6 +169,17 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Bootstrap walker menu
+ */
+require get_template_directory() . '/inc/bootstrap-walker-menu.php';
+
+
+/**
+ * From date meta box
+ */
+require get_template_directory() . '/inc/from-date-field.php';
 
 /**
  * Load Jetpack compatibility file.

@@ -17,7 +17,7 @@
     $posts = query_posts($args);  $cnt=0;
 ?>
 <!-- Contact form-->
-<section class="section bg-gray">
+<section class="section bg-gray" id="<?php echo $section_name; ?>">
 <div class="container">
   <div class="col-md-6 mx-auto">
   <!--Section heading-->

@@ -11,7 +11,7 @@
   ?>
 <!-- timeline -->
 
-<div class="bg-peach py-5" id="professional-history">
+<div class="bg-peach py-5" id="<?php echo $section_name; ?>">
 <div class="container">
 
   <div class="page-header">
@@ -31,7 +31,15 @@
           <div class="timeline-heading">
           <?php edit_post_link( __( 'Edit', 'textdomain' ), '<div class="floated">', '</div>', null, 'btn btn-default btn-sm btn-edit-post-link' ); ?>
             <h4 class="timeline-title"><?php the_title();?></h4>
-            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <?php echo get_the_date(); ?></small></p>
+            <p>
+            <?php $from_date = get_post_meta( $post->ID, '_from_date_meta_key', true ); ?>
+            <small class="text-muted"><i class="glyphicon glyphicon-time"></i>
+            <?php if($from_date): ?>
+               <?php echo date_format(date_create($from_date),"Y"); ?> - 
+            <?php endif; ?>
+              <?php echo get_the_date('Y'); ?>
+            </small>
+            </p>
           </div>
           <div class="timeline-body">
             <?php the_content(); ?>

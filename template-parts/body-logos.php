@@ -1,4 +1,6 @@
-<div class="section-logos texture-2" id="education">
+<?php $section_name = end(explode('-',basename(__FILE__, '.php'))); ?>
+
+<div class="section-logos texture-2" id="<?php echo $section_name; ?>">
 <div class="py-5">
 <div class="container" >
   <div class="section-title text-center py-3">

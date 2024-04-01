@@ -6,9 +6,16 @@
     .fixed-top {
         top:45px
     }
+    .floating-btn{
+        display: none;
+    }
   }
 
 .floated{
     display: flex;
     justify-content: center;
+}
+.floating-btn{
+    top: 80px;
+    position: fixed;
 }

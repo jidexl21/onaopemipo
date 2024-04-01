@@ -488,7 +488,7 @@ line-height: 100%;
 }
 
 .floating-btn{
-  position: absolute;
+  position: fixed;
   display: inline-block;
   min-height: 54px;
   background-color: #111113;
@@ -570,4 +570,58 @@ ul.availbility li a.nav-link{
 }
 .btn-close {
   background-color: #fff;
+}
+
+ul.quicklinks, .quicklinks ul {
+  list-style: none;
+}
+
+.quicklinks a, .quicklinks a:visited {
+  color: #ccc;
+  text-decoration: none
+}
+
+.quicklinks a:hover {
+  text-decoration: underline;
+  color: #ccc;
+}
+
+.footer {
+  background-color: #293241;
+  min-height: 200px;
+  color: #efefef;
+  padding:40px 0px 40px 0px;
+  margin-bottom: -50px;
+}
+
+span.availability-logo {
+  background-image: url("../images/zones.png");
+  width: 82px;
+  height: 36px;
+  background-position: 84px;
+  display: inline-block;
+}
+
+span.availability-logo.nigeria {
+  background-position: 84px;
+}
+span.availability-logo.middle-east {
+  background-position: 0px;
+}
+
+span.availability-logo.north-america {
+  background-position: 169px;
+}
+
+#availability-tabs a.nav-link {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+#availability-tabs::before {
+  content: "Available in";
+  position: absolute;
+  transform: translateX(-70px);
+  line-height: 36px;
+  font-size: smaller;
 }

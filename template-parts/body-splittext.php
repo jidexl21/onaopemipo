@@ -20,7 +20,7 @@
     );
     $posts = get_posts( $args ); $cnt=0;
 ?>
-<div class="bg-off-white-split-reverse">
+<div class="bg-off-white-split-reverse" id="<?php echo $section_name; ?>">
   <div class="container">
     <div class="row featurette">
     <?php if(count($posts) > 0): foreach ( $posts as $post ) : setup_postdata( $post );?>

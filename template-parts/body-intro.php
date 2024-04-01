@@ -11,7 +11,7 @@
     );
     $posts = get_posts( $args ); $cnt=0;
 ?>
-<div class="intro" id="<?php print $section_name;?>">
+<div class="intro" id="<?php echo $section_name; ?>">
   <div class="container center-text">
     <div class="content py-5 ">
      <?php if(count($posts) > 0): foreach ( $posts as $post ) : setup_postdata( $post );?>
