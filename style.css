@@ -1075,28 +1075,7 @@ textarea {
   font-style: normal;
 }
 
-.btn-round-lg{
-  border-radius: 22.5px;
-  }
-  .btn-round{
-  border-radius: 17px;
-  }
-  .btn-round-sm{
-  border-radius: 15px;
-  }
-  .btn-round-xs{
-  border-radius: 11px;
-  padding-left: 10px;
-  padding-right: 10px;
-  }
 
-  .btn-secondary{
-    background-color: #293241;
-    padding-inline: 40px;
-  }
-  .btn-secondary:hover{
-    background-color: #293241;
-  }
   
   .spacer-textured {
     background-color: #e2ebf1;
@@ -1335,10 +1314,6 @@ footer {
   margin-bottom: -50px;
 }
 
-.texture-2 {
-  background-image: url(../images/texture-2.jpg);
-}
-
 .bg-gray {
   background-color: #f5f5f7;
 }
@@ -1347,9 +1322,3 @@ footer {
   min-height: 20vh;
 }
 
-h2.fw-normal{
-  display: block;
-  font-size: 1.3em;
-  font-weight: bold ;
-  padding: 15px 0 5px;
-}
